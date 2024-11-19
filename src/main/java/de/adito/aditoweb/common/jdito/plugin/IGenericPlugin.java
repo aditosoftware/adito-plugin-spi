@@ -1,32 +1,36 @@
 package de.adito.aditoweb.common.jdito.plugin;
 
+import de.adito.aditoweb.common.jdito.plugin.v2.IServicePlugin;
+
 /**
  * Common interface for plugins.
  *
  * @author R. Loipfinger, 25.08.2005
+ * @deprecated Use {@link IServicePlugin} instead.
  */
+interface IGenericPlugin {
+    /**
+     * @return the plugins implementation version.
+     */
+    String getVersion();
 
+    /**
+     * @return a description of the plugin and its features.
+     */
+    String getDescription();
 
-interface IGenericPlugin
-{
-  /**
-   * @return the plugins implementation version.
-   */
-  public String getVersion();
+    /**
+     * Static plugin initialization. This method is called just once for each plugin.
+     */
+    @Deprecated
+    default void initStatic() {
+    }
 
-  /**
-   * @return a short description for the plugin that is displayed in error messages.
-   */
-  public String getDescription();
-
-  /**
-   * Static plugin initialization. This method is called just once for each plugin.
-   */
-  public void initStatic();
-
-  /**
-   * Plugin initialization. Is executed every time the plugin is called.
-   */
-  public void init();
+    /**
+     * Plugin initialization. Is executed every time the plugin is called.
+     */
+    @Deprecated
+    default void init() {
+    }
 
 }

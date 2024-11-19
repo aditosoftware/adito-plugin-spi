@@ -5,8 +5,6 @@ package de.adito.aditoweb.common.jdito.plugin;
  *
  * @author R. Loipfinger, 26.05.2004
  */
-
-
 public class PluginException extends Exception
 {
   final static int DEFAULTID = 0;
